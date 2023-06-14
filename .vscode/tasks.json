@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++ build active file",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "-I",
+                "/usr/include/opencv4", // 添加这一行
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-L",
+                "/usr/lib/x86_64-linux-gnu/",
+                "-lopencv_core",
+                "-lopencv_highgui",
+                "-lopencv_videoio",
+                "-lopencv_imgproc",
+                "-lopencv_calib3d",
+                "`pkg-config --cflags --libs opencv4`"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
